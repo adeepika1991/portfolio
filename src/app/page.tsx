@@ -21,6 +21,7 @@ import {
   AccordionContent,
 } from "@/components/ui/Accordion";
 import { useState } from "react";
+import { MobileNav } from "@/components/ui/MobileNav";
 
 export default function Portfolio() {
   const [formData, setFormData] = useState({
@@ -174,7 +175,9 @@ export default function Portfolio() {
           >
             Deepika Asokan
           </motion.div>
-          <div className="flex gap-6 items-center">
+
+          {/* Desktop Navigation - hidden on mobile */}
+          <div className="hidden md:flex gap-6 items-center">
             <a
               href="#about"
               className="text-sm hover:text-accent transition-colors"
@@ -210,6 +213,11 @@ export default function Portfolio() {
             >
               Contact
             </a>
+          </div>
+
+          {/* Mobile Navigation - hidden on desktop */}
+          <div className="md:hidden">
+            <MobileNav />
           </div>
         </div>
       </motion.nav>
@@ -532,7 +540,7 @@ export default function Portfolio() {
                   data-track="Leadership Tab"
                 >
                   <TabsTrigger value="leadership" className="text-sm">
-                    Leadership & Philosophy
+                    Leadership
                   </TabsTrigger>
                 </motion.div>
                 <motion.div
