@@ -178,30 +178,35 @@ export default function Portfolio() {
             <a
               href="#about"
               className="text-sm hover:text-accent transition-colors"
+              data-track="About-me"
             >
               About
             </a>
             <a
               href="#experience"
               className="text-sm hover:text-accent transition-colors"
+              data-track="experience"
             >
               Experience
             </a>
             <a
               href="#projects"
               className="text-sm hover:text-accent transition-colors"
+              data-track="Projects"
             >
               Projects
             </a>
             <a
               href="#faq"
               className="text-sm hover:text-accent transition-colors"
+              data-track="FAQ"
             >
               FAQ
             </a>
             <a
               href="#contact"
               className="text-sm hover:text-accent transition-colors"
+              data-track="Contact"
             >
               Contact
             </a>
@@ -271,7 +276,7 @@ export default function Portfolio() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button size="lg" asChild>
+                <Button size="lg" asChild data-track="Get In Touch">
                   <a href="#contact">Get in Touch</a>
                 </Button>
               </motion.div>
@@ -279,7 +284,12 @@ export default function Portfolio() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button size="lg" variant="outline" asChild>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  asChild
+                  data-track="Hero Section - Projects"
+                >
                   <a href="#projects">View Work</a>
                 </Button>
               </motion.div>
@@ -465,6 +475,7 @@ export default function Portfolio() {
                             <a
                               href={project.github}
                               className="flex items-center gap-2"
+                              data-track={`${project.title}- Github Link`}
                             >
                               <Github className="w-4 h-4" />
                               Code
@@ -479,6 +490,7 @@ export default function Portfolio() {
                             <a
                               href={project.live}
                               className="flex items-center gap-2"
+                              data-track={`${project.title}- Live`}
                             >
                               <ExternalLink className="w-4 h-4" />
                               Live
@@ -517,6 +529,7 @@ export default function Portfolio() {
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
+                  data-track="Leadership Tab"
                 >
                   <TabsTrigger value="leadership" className="text-sm">
                     Leadership & Philosophy
@@ -525,6 +538,7 @@ export default function Portfolio() {
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
+                  data-track="Team and Culture Tab"
                 >
                   <TabsTrigger value="team" className="text-sm">
                     Team & Culture
@@ -533,6 +547,7 @@ export default function Portfolio() {
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
+                  data-track="About Me Tab"
                 >
                   <TabsTrigger value="about" className="text-sm">
                     About Me
@@ -685,7 +700,11 @@ export default function Portfolio() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <Button type="submit" className="w-full">
+                    <Button
+                      type="submit"
+                      className="w-full"
+                      data-track="Contact Me"
+                    >
                       Send Message
                     </Button>
                   </motion.div>
@@ -702,6 +721,7 @@ export default function Portfolio() {
                       href="mailto:adeepika1991l@gmail.com"
                       className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
                       whileHover={{ x: 5 }}
+                      data-track="Email"
                     >
                       <Mail className="w-5 h-5" />
                       <span>adeepika1991@gmail.com</span>
@@ -712,6 +732,7 @@ export default function Portfolio() {
                       rel="noopener noreferrer"
                       className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
                       whileHover={{ x: 5 }}
+                      data-track="Github Portfolio"
                     >
                       <Github className="w-5 h-5" />
                       <span>github.com/adeepika1991</span>
@@ -722,6 +743,7 @@ export default function Portfolio() {
                       rel="noopener noreferrer"
                       className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
                       whileHover={{ x: 5 }}
+                      data-track="LinkedIn"
                     >
                       <Linkedin className="w-5 h-5" />
                       <span>linkedin.com/in/deepika-asokan</span>
