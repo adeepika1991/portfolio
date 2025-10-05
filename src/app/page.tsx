@@ -43,7 +43,7 @@ export default function Portfolio() {
       title: "Senior Software Engineer",
       company: "Zuci Systems - Mariner Finance",
       period: "2019 - 2021",
-      location: "New York, NY",
+      location: "Chennai, India",
       description:
         "Developed responsive web applications, implemented design systems, and improved application performance by 40%.",
       technologies: ["React", "JavaScript", "Redux", "SCSS"],
@@ -699,32 +699,32 @@ export default function Portfolio() {
                   </h3>
                   <div className="space-y-4">
                     <motion.a
-                      href="mailto:your.email@example.com"
+                      href="mailto:adeepika1991l@gmail.com"
                       className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
                       whileHover={{ x: 5 }}
                     >
                       <Mail className="w-5 h-5" />
-                      <span>your.email@example.com</span>
+                      <span>adeepika1991@gmail.com</span>
                     </motion.a>
                     <motion.a
-                      href="https://github.com"
+                      href="https://github.com/adeepika1991"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
                       whileHover={{ x: 5 }}
                     >
                       <Github className="w-5 h-5" />
-                      <span>github.com/yourusername</span>
+                      <span>github.com/adeepika1991</span>
                     </motion.a>
                     <motion.a
-                      href="https://linkedin.com"
+                      href="https://www.linkedin.com/in/deepika-asokan/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
                       whileHover={{ x: 5 }}
                     >
                       <Linkedin className="w-5 h-5" />
-                      <span>linkedin.com/in/yourprofile</span>
+                      <span>linkedin.com/in/deepika-asokan</span>
                     </motion.a>
                   </div>
                 </Card>
@@ -737,7 +737,10 @@ export default function Portfolio() {
       {/* Footer */}
       <footer className="py-8 px-6 border-t border-border">
         <div className="max-w-6xl mx-auto text-center text-sm text-muted-foreground">
-          <p>© 2025 Deepika Asokan. Built with Next.js and Tailwind CSS.</p>
+          <p>
+            © {new Date().getFullYear()} Deepika Asokan. Built with Next.js and
+            Tailwind CSS.
+          </p>
         </div>
       </footer>
     </div>
