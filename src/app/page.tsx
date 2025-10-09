@@ -105,34 +105,36 @@ export default function Portfolio() {
 
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "Design System Prototype",
       description:
-        "Full-featured e-commerce platform with real-time inventory management, payment processing, and admin dashboard.",
-      technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
-      image:
-        "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop",
-      github: "#",
-      live: "#",
+        "A Multi-brand & Multi-theme design system prototype in a monorepo package which supports Web apps and React Native Mobile apps",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "Style Dictionary",
+        "PNPM",
+        "Storybook",
+        "React Native",
+      ],
+      image: "/design-system.jpg",
+      github: "https://github.com/adeepika1991/ds-monorepo",
+      live: "https://adeepika1991.github.io/ds-monorepo/storybook",
     },
     {
-      title: "Project Management Tool",
+      title: "Pixel based Analytics Platform",
       description:
-        "Collaborative project management application with real-time updates, task tracking, and team communication features.",
-      technologies: ["React", "Node.js", "Socket.io", "MongoDB"],
-      image:
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop",
-      github: "#",
-      live: "#",
-    },
-    {
-      title: "Analytics Dashboard",
-      description:
-        "Data visualization dashboard with interactive charts, real-time metrics, and customizable reporting for business intelligence.",
-      technologies: ["React", "D3.js", "Material-UI", "Firebase"],
+        "A real-time tracking system embedded in this portfolio, capturing clicks, scrolls, and session duration to visualize user behavior instantly on a dynamic dashboard.",
+      technologies: [
+        "Next.js",
+        "Framer Motion",
+        "Ruby on Rails",
+        "Docker",
+        "TailwindCSS",
+      ],
       image:
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-      github: "#",
-      live: "#",
+      github: "https://github.com/adeepika1991/analytics-dashboard",
+      live: "https://portfolio-analytics-theta.vercel.app/",
     },
   ];
 
@@ -544,6 +546,8 @@ export default function Portfolio() {
                           <Button size="sm" variant="outline" asChild>
                             <a
                               href={project.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
                               className="flex items-center gap-2"
                               data-track={`${project.title}- Github Link`}
                             >
@@ -559,6 +563,8 @@ export default function Portfolio() {
                           <Button size="sm" asChild>
                             <a
                               href={project.live}
+                              target="_blank"
+                              rel="noopener noreferrer"
                               className="flex items-center gap-2"
                               data-track={`${project.title}- Live`}
                             >
