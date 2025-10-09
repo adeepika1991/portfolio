@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <Script
-          src="https://pixel-tracker-eta.vercel.app/pixel.js"
+          src="https://pixel-tracker-eta.vercel.app/pixel.js?v=2"
           strategy="afterInteractive"
         />
       </head>
