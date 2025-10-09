@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/Accordion";
 import { useState } from "react";
 import { MobileNav } from "@/components/ui/MobileNav";
+import "./globals.css";
 
 export default function Portfolio() {
   const [formData, setFormData] = useState({
@@ -30,33 +31,75 @@ export default function Portfolio() {
     message: "",
   });
 
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    const result = await res.json();
+    if (result.success) {
+      alert("Message sent!");
+      setFormData({ name: "", email: "", message: "" });
+    } else {
+      alert("Something went wrong.");
+    }
+  };
+
   const experiences = [
     {
       title: "Senior Software Engineer",
-      company: "Enlighted Inc. (A Siemens company)",
+      company: "Enlighted Inc. (Acquired by Siemens)",
       period: "Dec 2022 - Mar 2025",
       location: "Chennai, India",
       description:
-        "Leading frontend development for enterprise SaaS platform, mentoring junior developers, and architecting scalable React applications.",
-      technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
+        "IoT SaaS for smart buildings, acquired by Siemens; scaled to 100K+ devices across enterprise clients",
+      bullets: [
+        "Led a 4-person frontend team in modernizing a legacy application to React + Typescript based SaaS platform, unlocking new revenue streams and shifting company strategy.",
+        "Delivered a token-driven multi platform, multi brand, multi theme design system (15+ reusable components via Storybook + Figma), enabling a mobile MVP launch in 4 weeks.",
+        "Mentored interns + engineers, recruited 1 Full Time Engineer + 3 interns, and scaled team capabilities through code reviews, DX tooling, and training.",
+      ],
+      technologies: [
+        "React",
+        "TypeScript",
+        "GraphQL",
+        "Node.js",
+        "PostgreSQL",
+        "React Native",
+        "Ruby on Rails",
+        "GCP",
+      ],
     },
     {
       title: "Senior Software Engineer",
       company: "Zuci Systems - Mariner Finance",
-      period: "2019 - 2021",
+      period: "Nov 2021 - Oct 2022",
       location: "Chennai, India",
       description:
-        "Developed responsive web applications, implemented design systems, and improved application performance by 40%.",
-      technologies: ["React", "JavaScript", "Redux", "SCSS"],
+        "Global consulting firm delivering fintech & healthcare solutions for US/EU enterprises, including Mariner Finance",
+      bullets: [
+        "Redesigned Mariner Finance’s loan processing platform, increasing completion rates by 42% via accessible forms, progressive disclosure, and auto-save.",
+        "Improved load times by 70% using caching, lazy loading, tree-shaking, and code-splitting.",
+        "Enhanced responsiveness by 50% with Optimistic UI techniques; monitored Core Web Vitals with Lighthouse audits.",
+      ],
+      technologies: ["React", "Zustand", "Material UI", "Node.js", "Mongo DB"],
     },
     {
       title: "Frontend Developer",
-      company: "StartUp Hub",
-      period: "2018 - 2019",
-      location: "Austin, TX",
+      company: "iGlitz Technologies",
+      period: "Oct 2018 - Nov 2021",
+      location: "Coimbatore, India",
       description:
-        "Built user interfaces for mobile-first applications, collaborated with design team, and contributed to component library.",
-      technologies: ["Vue.js", "HTML", "CSS", "Bootstrap"],
+        "digital product agency delivering SaaS & marketplace platforms for Small and Medium scaled Enterprises",
+      bullets: [
+        "Migrated a legacy jQuery app into modular React + TypeScript, raising unit test coverage from 15% → 85% and reducing bugs by 40%.",
+        "Eliminated security risks by 80% via SonarQube scans + OWASP remediation.",
+        "Standardized API contracts (OpenAPI) across FE/BE, boosting sprint velocity by 25% and streamlining onboarding.",
+      ],
+      technologies: ["React.js", "Redux", "TypeScript", "Styled Components"],
     },
   ];
 
@@ -316,21 +359,23 @@ export default function Portfolio() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl font-bold mb-8">About Me</h2>
-            <Card className="p-8 mb-8 moving-border">
-              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                I&apos;m a passionate Senior Frontend Engineer with 6 years of
-                experience building scalable, user-centric web applications. I
-                specialize in React, Next.js, and TypeScript, with a strong
-                focus on performance optimization, accessibility, and clean code
-                architecture.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Throughout my career, I&apos;ve led cross-functional teams,
-                mentored junior developers, and delivered high-impact features
-                for enterprise applications. I&apos;m always learning and
-                staying up-to-date with the latest web technologies and best
-                practices.
-              </p>
+            <Card className="moving-border p-[2px] mb-8">
+              <div className="rounded-[calc(var(--radius)+2px)] bg-[var(--card)] p-8">
+                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                  I&apos;m a Senior Frontend Engineer with 6 years of experience
+                  building scalable, user-centric web applications. I specialize
+                  in React, Next.js, and TypeScript, with a strong focus on
+                  performance optimization, accessibility, and clean code
+                  architecture.
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Throughout my career, I&apos;ve led cross-functional teams,
+                  mentored junior developers, and delivered high-impact features
+                  for enterprise applications. I&apos;m always learning and
+                  staying up-to-date with the latest web technologies and best
+                  practices.
+                </p>
+              </div>
             </Card>
             <div>
               <h3 className="text-2xl font-semibold mb-4">
@@ -401,9 +446,26 @@ export default function Portfolio() {
                         </div>
                       </div>
                     </div>
+
                     <p className="text-muted-foreground mb-4">
                       {exp.description}
                     </p>
+
+                    {/* 🔹 Bullet Points */}
+                    <ul className="list-disc list-inside text-sm text-muted-foreground mb-4 space-y-1">
+                      {exp.bullets.map((point, i) => (
+                        <motion.li
+                          key={i}
+                          initial={{ opacity: 0, x: -10 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.3, delay: i * 0.05 }}
+                        >
+                          {point}
+                        </motion.li>
+                      ))}
+                    </ul>
+
                     <div className="flex flex-wrap gap-2">
                       {exp.technologies.map((tech) => (
                         <motion.span
@@ -671,10 +733,7 @@ export default function Portfolio() {
             <div className="grid md:grid-cols-2 gap-8">
               <Card className="p-6">
                 <h3 className="text-xl font-semibold mb-6">Send a Message</h3>
-                <form
-                  className="space-y-4"
-                  onSubmit={(e) => e.preventDefault()}
-                >
+                <form className="space-y-4" onSubmit={handleSubmit}>
                   <div>
                     <Input
                       placeholder="Your Name"
@@ -718,7 +777,6 @@ export default function Portfolio() {
                   </motion.div>
                 </form>
               </Card>
-
               <div className="flex flex-col justify-center space-y-6">
                 <Card className="p-6">
                   <h3 className="text-xl font-semibold mb-6">
