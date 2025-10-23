@@ -93,7 +93,7 @@ export default function Portfolio() {
       period: "Oct 2018 - Nov 2021",
       location: "Coimbatore, India",
       description:
-        "digital product agency delivering SaaS & marketplace platforms for Small and Medium scaled Enterprises",
+        "Digital product agency delivering SaaS & marketplace platforms for Small and Medium scaled Enterprises",
       bullets: [
         "Migrated a legacy jQuery app into modular React + TypeScript, raising unit test coverage from 15% → 85% and reducing bugs by 40%.",
         "Eliminated security risks by 80% via SonarQube scans + OWASP remediation.",
